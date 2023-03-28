@@ -3,4 +3,4 @@
 
 Please read nanogpt.ipynb
 
-Webpage in docs folder.
+Webpage Link: https://shawntxin.github.io/nanogptDT/
