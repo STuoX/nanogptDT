@@ -1,0 +1,169 @@
+(base) C:\Users\jlira\Training\__Classes_GeorgeBrown\4015 Advanced Mathematical Concepts for Deep LearningMachine Learning\Assignments\Project1\nanoGPT-master>python train.py config\finetune_donaldtrump.py --device=cuda:0
+modelpy running
+Overriding config with config\finetune_donaldtrump.py:
+import time
+
+out_dir = 'out-donaldtrump'
+eval_interval = 10#5
+eval_iters = 80 #40
+wandb_log = False # feel free to turn on
+wandb_project = 'donaldtrump'
+wandb_run_name = 'ft-' + str(time.time())
+
+dataset = 'donaldtrump'
+#init_from = 'gpt2'
+
+# only save checkpoints if the validation loss improves
+always_save_checkpoint = False
+
+# the number of examples per iter:
+# 1 batch_size * 32 grad_accum * 1024 tokens = 32,768 tokens/iter
+# shakespeare has 301,966 tokens, so 1 epoch ~= 9.2 iters
+batch_size = 1
+gradient_accumulation_steps = 64#32
+max_iters = 90#20
+
+# finetune at constant LR
+learning_rate = 1e-4
+decay_lr = False
+Overriding: device = cuda:0
+Initializing a new model from scratch
+defaulting to vocab_size of GPT-2 to 50304 (50257 rounded up for efficiency)
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+number of parameters: 123.59M
+using fused AdamW: False
+step 0: train loss 10.9457, val loss 10.9379
+iter 0: loss 11.0096, time 87487.62ms, mfu -100.00%
+iter 1: loss 9.9069, time 79178.05ms, mfu -100.00%
+iter 2: loss 9.3549, time 79124.25ms, mfu -100.00%
+iter 3: loss 9.2231, time 79169.42ms, mfu -100.00%
+iter 4: loss 9.0763, time 79173.29ms, mfu -100.00%
+iter 5: loss 8.9229, time 79194.48ms, mfu 1.81%
+iter 6: loss 8.8940, time 79227.33ms, mfu 1.81%
+iter 7: loss 8.8706, time 79250.24ms, mfu 1.81%
+iter 8: loss 8.6112, time 79257.83ms, mfu 1.81%
+iter 9: loss 8.4556, time 79259.47ms, mfu 1.81%
+step 10: train loss 10.9871, val loss 10.7377
+saving checkpoint to out-donaldtrump
+iter 10: loss 9.8115, time 90141.69ms, mfu 1.79%
+iter 11: loss 11.5496, time 79285.04ms, mfu 1.79%
+iter 12: loss 11.3380, time 79313.37ms, mfu 1.80%
+iter 13: loss 8.2821, time 79299.43ms, mfu 1.80%
+iter 14: loss 8.0431, time 79284.82ms, mfu 1.80%
+iter 15: loss 7.8476, time 79295.45ms, mfu 1.80%
+iter 16: loss 7.7496, time 79290.66ms, mfu 1.80%
+iter 17: loss 7.6918, time 79296.71ms, mfu 1.80%
+iter 18: loss 7.7406, time 79304.07ms, mfu 1.80%
+iter 19: loss 7.4941, time 79312.15ms, mfu 1.80%
+step 20: train loss 7.4043, val loss 7.5912
+saving checkpoint to out-donaldtrump
+iter 20: loss 7.3925, time 90163.14ms, mfu 1.78%
+iter 21: loss 7.2492, time 79330.95ms, mfu 1.79%
+iter 22: loss 7.3400, time 79344.40ms, mfu 1.79%
+iter 23: loss 7.0200, time 79344.45ms, mfu 1.79%
+iter 24: loss 6.8315, time 79357.97ms, mfu 1.79%
+iter 25: loss 6.7726, time 79337.52ms, mfu 1.79%
+iter 26: loss 6.7084, time 79319.33ms, mfu 1.80%
+iter 27: loss 6.6002, time 79314.11ms, mfu 1.80%
+iter 28: loss 6.5759, time 79323.44ms, mfu 1.80%
+iter 29: loss 6.3044, time 79326.32ms, mfu 1.80%
+step 30: train loss 6.4187, val loss 6.6251
+saving checkpoint to out-donaldtrump
+iter 30: loss 6.6432, time 90130.55ms, mfu 1.78%
+iter 31: loss 6.2033, time 79351.31ms, mfu 1.78%
+iter 32: loss 6.3043, time 79327.05ms, mfu 1.79%
+iter 33: loss 6.0362, time 79304.18ms, mfu 1.79%
+iter 34: loss 6.1343, time 79340.61ms, mfu 1.79%
+iter 35: loss 6.0399, time 79345.47ms, mfu 1.79%
+iter 36: loss 6.0489, time 79335.90ms, mfu 1.79%
+iter 37: loss 5.5792, time 79350.71ms, mfu 1.80%
+iter 38: loss 6.0843, time 79355.09ms, mfu 1.80%
+iter 39: loss 5.5997, time 79323.30ms, mfu 1.80%
+step 40: train loss 5.5996, val loss 5.9504
+saving checkpoint to out-donaldtrump
+iter 40: loss 5.4763, time 90089.08ms, mfu 1.78%
+iter 41: loss 5.9558, time 79353.56ms, mfu 1.78%
+iter 42: loss 5.3399, time 79327.14ms, mfu 1.78%
+iter 43: loss 5.7109, time 79342.09ms, mfu 1.79%
+iter 44: loss 5.5257, time 79348.95ms, mfu 1.79%
+iter 45: loss 5.5547, time 79345.35ms, mfu 1.79%
+iter 46: loss 5.3859, time 79370.67ms, mfu 1.79%
+iter 47: loss 5.2846, time 79342.61ms, mfu 1.79%
+iter 48: loss 5.3342, time 79355.33ms, mfu 1.80%
+iter 49: loss 4.9859, time 79346.82ms, mfu 1.80%
+step 50: train loss 5.1875, val loss 5.6172
+saving checkpoint to out-donaldtrump
+iter 50: loss 5.0200, time 90210.39ms, mfu 1.78%
+iter 51: loss 5.1811, time 79333.79ms, mfu 1.78%
+iter 52: loss 4.9023, time 79347.74ms, mfu 1.78%
+iter 53: loss 5.0986, time 79349.42ms, mfu 1.79%
+iter 54: loss 5.1493, time 79333.18ms, mfu 1.79%
+iter 55: loss 4.9281, time 79346.71ms, mfu 1.79%
+iter 56: loss 5.3454, time 79356.56ms, mfu 1.79%
+iter 84: loss 4.3712, time 79336.12ms, mfu 1.79%
+iter 85: loss 4.3724, time 79355.53ms, mfu 1.79%
+iter 86: loss 4.1386, time 79360.64ms, mfu 1.79%
+iter 87: loss 4.3769, time 79343.58ms, mfu 1.79%
+iter 88: loss 3.9890, time 79355.26ms, mfu 1.80%
+iter 89: loss 4.0895, time 79330.43ms, mfu 1.80%
+step 90: train loss 4.1366, val loss 5.0171
+saving checkpoint to out-donaldtrump
+iter 90: loss 4.0266, time 90229.80ms, mfu 1.78%
+
+(base) C:\Users\jlira\Training\__Classes_GeorgeBrown\4015 Advanced Mathematical Concepts for Deep LearningMachine Learning\Assignments\Project1\nanoGPT-master>python sample.py --out_dir=out-donaldtrump --device=cuda:0
+modelpy running
+Overriding: out_dir = out-donaldtrump
+Overriding: device = cuda:0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+number of parameters: 123.59M
+No meta.pkl found, assuming GPT-2 encodings...
+
+ is any some of doing that they have we're not so we're going to vote. He made it's a second amendment, we want to do an really, we tell you want to get off. So we'll be closed. Thank you have a little bit, it, "I will be the American family. We're going to be up our country. They'd have a long time. It's a lot. I'm building a lot of a call me. And I said, we have rid of it's almost a little bit, because we're not with a disgrace. They're not going to be a little bit, they're going to do that's a little bit, we're doing great, it now. I love it, but I'm going to. We're going to do it's done with me with a little bit, and we have a big deal, we should be in, it's the greatest guy, they haven't say, but we have to say, we did's going to do a bad. So we will have a little bit of this was so much, you don't talk about it. But you say, which is the radical left a great number one go home. And we're telling you want to the world. I have a great thing, I see very, I don't win, we're not going up, right? And we've doing it's a lot of our border and release. It's a lot of people or we have to get a lot of a great and they don't like it no idea what happened? We're going to be in a big states, when you do it. But we've got to come I don't do that, not doing that with Michigan. We're going to you know. They said, but ever over a tough. We have a lot of the their. I promised to,, right? I can say, I think we want to have to see it. We would have to get through speech, "It said, right? How about it." They have four years. I'm going to be in the one, but it in Wisconsin and then never will and we're not going to go out of borders. And we're closed. I will make America look, right to keep a lot of them. I don't say, "Oh, we're going to be just in the White House. They don't know what, the cages for the wall. I
+---------------
+
+ he was a horrible, but they like." I times. He's down to get them, and over and we're the same and he was a minute, "I'll tell you, did that what happened, let that they're what they're going to be great, the wall. We don't get rid of these people that's, look at that one, "You're going to do." And we're the history of it's going to say, that's always going to imagine a lot of say, because the history of China, "We will be a great, but we've done an little bit, "Oh, back to do twoWell, right now we're going to be very much." They had a little while. We will be here up, we're not the polls, "What. And we're going to do it. It's not going to have to the world, we're allowed to?" But we're going to bring them over our country. I said,000 so if it? Because he said, â€¦ What we're very good, it for, and we have to one of your country, because they're going to do we're great say, he's not would not the Constitution of the most important to win that they're not I'm not going to have a the Democrats are going to do as a parking, do it, and a lot of our military said, there, and two days, we have a great job. Oh, "Tra down Obama. I'm not like to have been everybody. We have a friend of on the Democrats are going to do it, history of it's done. I said, we have to do it. They'd going to the president, because they put them back. You know about it's like are going to raise your life, I'm not going to do that? For years. But even want to happen. We've ended the America made a great people of the kids. I do, but we're going to fake news are going to be so many people it. And I think we're going to went out and I don't like a lot of them. But had to do it. I'd see the largest little bit, we're going to come in the most, I said, "How build it ever done get a horrible people remember that, we've have your next single business, I said, and they are, in the Biden's a
+---------------
+
+ million. Every time it, we've done. And they just no. And they did it to go out and they said, and we're doing what, you, we're not the world, but we want to be not going out and we have to go and we did, I've been, we want to make America care of all of the best is all what they're doing it. You know, which we were doing? He's a little back. Look, their border. And I said, I'll tell me, and they you take a very much very, I don't know. I said, and for the rebate and would have a lot of Wisconsin. You can't get a wall. Thank you're doing the place, they do. That's their spike. They're doing. I don't want the United States, and they were talking about it. And then we have this country, we're doing good. Eight years. We will make easy. He's a long time. They're going on this years of a lot of the nic and who has been? And that, one. We're owned for the horrible, and we like a great about that we had it. They were are not an ad coming in the most important, we've done more people'm not, he's a deal. But there's a lot of the right. We are the things, but I think us, that, I'm not going to go home and the American way, but we're going to be would be in Wisconsin, they'd like a lot of those family, we have the United States is to be just done. That was just say, they don't know, we have to know he have a long time, "You're doing a just a historic doing it. We're going to be before are a great. We take a great president, I love this guy. I'm not been going to have to vote for a stuff, come up, we're taking it's the? They thought we're going to and he's the United States, and got the end of her. And I don't know down, when we're a very much. Who said, I said, look at the wall. We're building the history of the great guys, but you want to have a favor. And people that? They have to do. It's make America. And it's why I'm in the wall. I said to go and
+---------------
+
+ he was the country. They love it's a little bit, they what they will make America's going to be here, and I'm going to go. They where all over, under? What we do it on the world. They're not doing that's going to do that we're not going to happen that that we had it down,. You will make your jobs and we were going to get out of our nation, right? That's going to keep on things, we're going to have to good deal with our nation. I don't like the next great on â€¦ You have to tell you think, they're going to do you they have been very much. They went up. I said, and then they've had president of people. We're doing a long time I said, "Oh, with it at this that were were totally be so. We will never can't have an next have a lot. We're going to say, "He's very well. All of the wall. This is going to go out and you. It's a little while." And that beautiful, I said, he's a beautiful $1 for the way. I need a sudden, "You do it's a great. We're going to win." They said, "That was so many Trump virus we've been against the most important, we have been doing. They run to have to get up, right? We will say, and the largest of help, I don't have a lot of the guys did that's a minute, I'll be in that. They want that's a great job. We're going to have to get $2, we're not going to the way, you where we got to be easy. You know that and they're going to talk about it, and we said, we will make America, he was the way, we're going to bring them, I said, a military, because we will never want to have to get it ago, "Oh, "We have a couple of this is what's a lot of our country, right from the money, we've done a deal, we've come up to be just went to have to win. We're â€¦ I'm not going to have a deal. We're going to do that? I said, I said, because we're doing it, they're great this had I've never, because it's a        
+---------------
+
+ it,â€¦ he â€¦ I are more for the radical left it's a long time, "We didn't that's really as the first time, we know why I gave â€¦ I'm here tonight? I saw the other day. So I will in some of the greatest, and we were are the. We are the House, and then they'll say, and she's a great thing, I'd our own American constitution, "Let you're to do this,000, I say, "Oh, we have a sudden we were going to this, but these guys are up there's going to build a lot of big, I didn't know but we mean, "You have them, we have a very the history. I said it's was a long time I brought it's going to a great. But we're bringing of these guys. And I'll you know our country, the way, and you like the Democrats with the best job you know what we're not going to be going to be the best is by the most important, which we will be in here. Their, or we got to go to I said, ever seen. We will never have to have a woman to win. We're doing it's so easy. We are? They have a very much, there was the campaign, it's not going to the way, they're going to have some of these guys, "You don't have, "He write. And, the people is our country, no, "Oh, I be no more than that with a lot of the wife, I'll be very much, and we have to have children at your life, "Please vote. And then they believe in the things. It's going to do it's unbelievable. I'll have a day. And I said, I said, that one of ISIS, Biden will be proud of our country, right? We got it. Now, won't say, go for a big deal, I don't want to be doing." And that I don't you know, I said, "It is But if we're in the United States, "You will be doing a friend of Wisconsin and up. They're going to come in your just said, he's like the hell always have a lot of a very much, they believe that, they are the greatest economy." The Republicans, in the Democrats would not a favor
+---------------
+
+ first they you, that. But these companies, "Well, the fake news, a lot of the way, me a them, "Well, and nobody are going to these guys." What we're not a great. So we're doing great, we have a great people. They. And we got to jobs." And we've he said, I said, so. And I said, "I want to do you. That's been a small him we have run, we're the wall. They come in the the greatest, we know what a nice. And we got it's not do it. We are going to get all over the whole great. He's going to thank you look at a big deal. It's back. Are you bad as we're doing a deal, "Oh, I said, come up with a lot of it's so we have. I have a half. The biggest because we're doing great job when with them have through the first. We will be a great with your cars. They read it?" Then they're already only do it to have thought you got very them, it's happening. She's will make America great. A lot of it's nothing. It's other day, when they'll be there's a little. There was where you're my number of people, and we have to have it's what? We don't do it. And now, and we're great. You have a sudden they say, four said, because again, time they're going to the time. They don't say, it's a disaster." And it's a big deal. And I think he said, I've been a great. He's a 16, "I never want to do it's their own of it's terrible. They're spending? They're not go out of on a great. But and they love it. You have a good job. He said it anything. We have a lot of our country and we're going to do did a long time, but we're going to have to the year, "You're going to give get up, it. It's a great. There's really said, and you know, "We want to do it." And we'll do you, and here to have care of those are like that's a lot of the president. Let's their election? The whole jobs. We're in the greatest economy's a lot. I'm going to
+---------------
+
+ before history of the time, that, they say, because they said, it a sudden, the only looking me a long time the country. We're going to the oil. But we will go to have no, they see what's a lot of the year. He said, "We're the world. And we have a the best from the Democrats have an incredible. We believe it's not to go down the entire back in jobs and a little bit, we had to come in the most important." It had a good, they were to the single number is the campaign and you don't have been off to work. I said, doing a good or-? What we've never go to have been in $1. And we're not a very, the most. You see what I have an incredible farmers, we you up and we're just want to do it. It's the water, "Oh, they said, take them, right from through the other things he said, I said, sir." He's years, the way, "Oh, " would take none. This is the USA, that would like a lot of the United States, but they said, but we're not crazy. And we're going to be wall. And the greatest economy." And we'll see it, "Well, "We've done, I said, and I did it's get back and they don't imagine that, I said, it was one of America's fine. They said, I don't want to get a great, and it was a half with being a total of them back. They said it." I'm'd have thousands of our country. The whole deal. They don't want to get him, we've been a long time. They're building the are getting up with everybody to be there's a long time. And it. I said, but I don't know what? We've got a long time they where they don't even really." It's a big deal. And she'd say, it's will never been so we have a great. It's going to do it's really mean that we've done that, because we're a little Schiff, no idea that? We want to one of the American people have a year, and do you ever imagine to say, and here. It's true. I'm building the election. I got good. It's ever what we will be a year, "You
+---------------
+
+ never, they were he's me. The, President, how, "Oh, "I was a they're doing he's one. And then they're not going to murder a little swamp." But it's a lot of he's $2. They look at what they're the time. I love it's a." They said, or a deal. You have in water. They knew. I said, "Oh, they was in their great. You'll go out. It's another out of the president million people, right? I'm not going to get their jobs, our thing, it. But I'll say New York and we did it. You think here. You know, I took it's what they had a great so we have a good job. I guess that they've done a great, Wisconsin, but they're going to the fact all of the us, and you have any too. We will go. We're doing it." There's my administration, we have to win, I'm going to the greatest healthcare. I said, I don't like. The people did a little bit of a disgrace, but you. And Trump. I forget, "We're not going to win Democrats, right? These are trying to go to say, we." But get Wisconsin. I don't come home and I will be been doing an ad, they were my country. They don't have a very, it, that's going to take me up for ever, and they're doing as the way, the world, but we do it's not so much. And we had a good thing. I didn't know going to be. And I'll tell you think it's a great if you like won't think he's okay? You know their it, we've been in the cages. They mean you. I said, I tell you, we did I said, they have to end about. And then you believe it's the best. They the way, the fake news, that's not the of them, "Well, they want the people that's not â€¦ If they're going to do? But we'll say it on the other things that they're not to and I said, but I've got to hear the morning. You know before like I mentioned, when I'll have they were talking about it." But â€¦ I know, a greatest. We've seen that I
+---------------
+
+ I him, "Well, said, but the United States over the way, "Sir, two he can't have a little day that. You know. He said, right? And I love you could have you want to come in a he was a little bit of the time in the farmers. But I don't win. They want to have a great people, so much. We had a president. I said, they're great fighter." I've got to keep America great. We're going to? That's like what we got here. He said, "Why's going to make your state of that one, it's a record. No, did a great job, we're all who. I'll have great job. You are a little bit of a very much. You know what it. I want to me, and it was her, but it's a minute, you know. be what that's the way, they don't do it's what I want to keep him, this, when I'll imagine? He's okay? "No, it for time. If we will protect our country, they said, but it very good, we had the it's a big. They didn't think we're not doing, I remember that's another one, you do that has already now. And, winning, they were getting them. So where they were not doing? And me, "We're going to the world. And we have to put it was just have to the election. Now, an great job, and they were so it. would have a lot of that we want it was a little while. I don't want to the things that. You are getting up. I have very, he was a couple of the things big deal. I need anything for a great right. I it's going to do it? That's a big thing to win two years, here's very much,000 people that's going to." So they went to do it, I say it. They're going to do anything. We had a list of the way we have a lot of their States, because you have them, they're not my's not going to be so much. And that." Did she's not a with than what's one, because I'd say, they say, too, and they want to get to see that's a half? He's so well. I said, it up. He's a
+---------------
+
+ on the money to have the can't do that, they're talking about it's a lot of a little to have to be very, but it's okay. I said, right. So we're going to do it's called a lot of our country. I said, it's not about it's an incredible job when they were so. I said, they're going to win. It's just say, but I said, we've ever see them out a big, got it. Okay, but you get out. I don't have a great. And then he in this is the things that money to have a great with that? They with a good. You know, I mean, they said, he's a great. We've hear it. Thanks to make a good. He said, I think so bad. It's going to do out of people that you. He would have a lot of the guy? He said, I'll say, ever said, this country to run. They're not going to do me he's a lot of a deal, they were were going to bring two different crazy. And their year, because I'm not going to have to me. And we have a great thing. We have a lot of the talk about it's a level that's one of them, you don't've done. Our in a long time, we're the history of them the United States, "It's that's a woman for the polls, he's a lot of people. He never never do, "I hear, and we're doing great job. So it's just want to would be out and then they're going to say when I don't know what I'll be true. I said, how about that would have done. They're doing, I've done with the and I like the world. We're going to keep them, that we're going to look at I'm not doing a problem. I'm not, a great job. The one of our country is a lot. That's call me, they know, so much, I have great job you care about the night? Remember what we have the history of people. Well, we have a lot of where only thing. She was a free from I don't have a great deal. At about it's a deal. You know,, because we had a big deal they had a year, "I hate to keep it. But you can

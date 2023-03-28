@@ -1,0 +1,8 @@
+# latest modules as of 2023-03-13
+torch==1.13.1
+numpy==1.24.2
+transformers==4.26.1  # to load GPT-2 checkpoints
+datasets==2.10.1  # to download + preprocess OpenWebText
+tiktoken==0.3.1  # for OpenAI's fast BPE code
+wandb==0.13.11  # for optional logging (weights & biases?)
+tqdm==4.65.0  # for progress bars

@@ -1,0 +1,245 @@
+(base) C:\Users\jlira\Training\__Classes_GeorgeBrown\4015 Advanced Mathematical Concepts for Deep LearningMachine Learning\Assignments\Project1\nanoGPT-master>python train.py config\finetune_donaldtrump.py device=cuda:0   
+modelpy running
+Overriding config with config\finetune_donaldtrump.py:
+import time
+
+out_dir = 'out-donaldtrump'
+eval_interval = 10#5
+eval_iters = 80 #40
+wandb_log = False # feel free to turn on
+wandb_project = 'donaldtrump'
+wandb_run_name = 'ft-' + str(time.time())
+
+dataset = 'donaldtrump'
+#init_from = 'gpt2'
+
+# only save checkpoints if the validation loss improves
+always_save_checkpoint = False
+
+# the number of examples per iter:
+# 1 batch_size * 32 grad_accum * 1024 tokens = 32,768 tokens/iter
+# shakespeare has 301,966 tokens, so 1 epoch ~= 9.2 iters
+batch_size = 1
+gradient_accumulation_steps = 64#32
+max_iters = 120#20
+
+# finetune at constant LR
+learning_rate = 3e-4
+decay_lr = False
+Traceback (most recent call last):
+  File "C:\Users\jlira\Training\__Classes_GeorgeBrown\4015 Advanced Mathematical Concepts for Deep LearningMachine Learning\Assignments\Project1\nanoGPT-master\train.py", line 78, in <module>
+    exec(open('configurator.py').read()) # overrides from command line or config file
+  File "<string>", line 32, in <module>
+AssertionError
+
+(base) C:\Users\jlira\Training\__Classes_GeorgeBrown\4015 Advanced Mathematical Concepts for Deep LearningMachine Learning\Assignments\Project1\nanoGPT-master>python train.py config\finetune_donaldtrump.py --device=cuda:0
+modelpy running
+Overriding config with config\finetune_donaldtrump.py:
+import time
+
+out_dir = 'out-donaldtrump'
+eval_interval = 10#5
+eval_iters = 80 #40
+wandb_log = False # feel free to turn on
+wandb_project = 'donaldtrump'
+wandb_run_name = 'ft-' + str(time.time())
+
+dataset = 'donaldtrump'
+#init_from = 'gpt2'
+
+# only save checkpoints if the validation loss improves
+always_save_checkpoint = False
+
+# the number of examples per iter:
+# 1 batch_size * 32 grad_accum * 1024 tokens = 32,768 tokens/iter
+# shakespeare has 301,966 tokens, so 1 epoch ~= 9.2 iters
+batch_size = 1
+gradient_accumulation_steps = 64#32
+max_iters = 120#20
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+number of parameters: 123.59M
+using fused AdamW: False
+step 0: train loss 10.9500, val loss 10.9501
+iter 0: loss 10.9832, time 88743.71ms, mfu -100.00%
+iter 1: loss 9.8305, time 80937.49ms, mfu -100.00%
+iter 2: loss 9.1985, time 81811.28ms, mfu -100.00%
+iter 3: loss 8.9722, time 80420.47ms, mfu -100.00%
+iter 4: loss 8.6015, time 80634.34ms, mfu -100.00%
+iter 5: loss 8.3670, time 90965.75ms, mfu 1.58%
+iter 6: loss 8.1752, time 86334.68ms, mfu 1.59%
+iter 7: loss 7.8094, time 83266.07ms, mfu 1.60%
+iter 8: loss 7.4700, time 99655.85ms, mfu 1.59%
+iter 9: loss 7.2368, time 83881.42ms, mfu 1.60%
+step 10: train loss 7.1466, val loss 7.2117
+saving checkpoint to out-donaldtrump
+iter 10: loss 7.2063, time 90773.58ms, mfu 1.60%
+iter 11: loss 6.7685, time 79493.31ms, mfu 1.62%
+iter 12: loss 6.8535, time 79402.37ms, mfu 1.64%
+iter 13: loss 6.7314, time 79413.19ms, mfu 1.65%
+iter 14: loss 6.3109, time 79431.81ms, mfu 1.67%
+iter 15: loss 6.2601, time 79451.36ms, mfu 1.68%
+iter 16: loss 6.1390, time 79456.57ms, mfu 1.70%
+iter 17: loss 6.2430, time 79472.66ms, mfu 1.71%
+iter 18: loss 6.8096, time 79417.08ms, mfu 1.72%
+iter 19: loss 6.2055, time 79424.25ms, mfu 1.73%
+step 20: train loss 6.0063, val loss 6.0897
+saving checkpoint to out-donaldtrump
+iter 20: loss 5.9768, time 90375.45ms, mfu 1.71%
+iter 21: loss 5.7892, time 79423.82ms, mfu 1.72%
+iter 22: loss 5.7398, time 79462.71ms, mfu 1.73%
+iter 23: loss 5.6330, time 79711.78ms, mfu 1.74%
+iter 24: loss 5.8714, time 79687.84ms, mfu 1.74%
+iter 25: loss 5.7696, time 79708.86ms, mfu 1.75%
+iter 26: loss 5.6624, time 79680.70ms, mfu 1.76%
+iter 27: loss 5.8314, time 79681.59ms, mfu 1.76%
+iter 28: loss 5.6181, time 79689.23ms, mfu 1.76%
+iter 29: loss 5.6029, time 79707.02ms, mfu 1.77%
+step 30: train loss 5.6084, val loss 5.7955
+saving checkpoint to out-donaldtrump
+iter 30: loss 5.6303, time 90559.71ms, mfu 1.75%
+iter 31: loss 5.3299, time 79821.95ms, mfu 1.75%
+iter 32: loss 5.6521, time 79718.17ms, mfu 1.76%
+iter 33: loss 5.4971, time 79726.42ms, mfu 1.76%
+iter 34: loss 5.8755, time 79711.12ms, mfu 1.77%
+iter 35: loss 5.4434, time 79732.51ms, mfu 1.77%
+iter 36: loss 5.2728, time 79736.90ms, mfu 1.77%
+iter 37: loss 5.1164, time 80414.78ms, mfu 1.78%
+iter 38: loss 5.0389, time 80271.80ms, mfu 1.78%
+iter 39: loss 5.4705, time 83650.08ms, mfu 1.77%
+step 40: train loss 5.2883, val loss 5.4013
+saving checkpoint to out-donaldtrump
+iter 40: loss 5.3126, time 93868.47ms, mfu 1.75%
+iter 41: loss 5.1950, time 79792.67ms, mfu 1.75%
+iter 42: loss 5.2004, time 82240.45ms, mfu 1.75%
+iter 43: loss 5.3030, time 83705.86ms, mfu 1.75%
+iter 44: loss 5.1279, time 84513.01ms, mfu 1.74%
+iter 45: loss 5.1148, time 95022.75ms, mfu 1.72%
+iter 46: loss 5.3118, time 85867.75ms, mfu 1.72%
+iter 47: loss 4.9420, time 84976.09ms, mfu 1.71%
+iter 48: loss 4.9631, time 84048.53ms, mfu 1.71%
+iter 49: loss 5.0315, time 83935.07ms, mfu 1.71%
+step 50: train loss 5.0485, val loss 5.2232
+saving checkpoint to out-donaldtrump
+iter 50: loss 4.9443, time 95992.64ms, mfu 1.69%
+iter 51: loss 5.0177, time 84921.87ms, mfu 1.69%
+iter 52: loss 5.0245, time 84089.21ms, mfu 1.69%
+iter 53: loss 5.1372, time 83820.19ms, mfu 1.69%
+iter 54: loss 4.9826, time 84158.12ms, mfu 1.70%
+iter 55: loss 4.7661, time 83931.84ms, mfu 1.70%
+iter 56: loss 5.1338, time 84420.51ms, mfu 1.70%
+iter 57: loss 4.6510, time 83740.11ms, mfu 1.70%
+iter 58: loss 5.0384, time 84391.80ms, mfu 1.70%
+iter 59: loss 4.9284, time 84309.51ms, mfu 1.70%
+step 60: train loss 4.7600, val loss 4.9494
+saving checkpoint to out-donaldtrump
+iter 60: loss 4.6732, time 96513.27ms, mfu 1.68%
+iter 61: loss 4.7190, time 83932.51ms, mfu 1.68%
+iter 62: loss 4.7857, time 83992.43ms, mfu 1.68%
+iter 63: loss 4.7095, time 85152.23ms, mfu 1.69%
+iter 64: loss 4.9238, time 81729.14ms, mfu 1.69%
+iter 65: loss 4.4519, time 81047.38ms, mfu 1.70%
+iter 66: loss 4.5894, time 79644.75ms, mfu 1.71%
+iter 67: loss 4.6729, time 79590.44ms, mfu 1.72%
+iter 68: loss 4.7391, time 79577.86ms, mfu 1.73%
+iter 69: loss 4.5262, time 79550.17ms, mfu 1.74%
+step 70: train loss 4.6349, val loss 4.8530
+saving checkpoint to out-donaldtrump
+iter 70: loss 4.5319, time 90364.13ms, mfu 1.72%
+iter 71: loss 4.6508, time 79503.46ms, mfu 1.73%
+iter 72: loss 4.1403, time 83166.15ms, mfu 1.73%
+iter 73: loss 4.4669, time 84118.88ms, mfu 1.73%
+iter 74: loss 4.5271, time 80082.26ms, mfu 1.73%
+iter 75: loss 4.2763, time 79546.45ms, mfu 1.74%
+iter 76: loss 4.5521, time 79542.26ms, mfu 1.75%
+iter 77: loss 4.4003, time 79510.14ms, mfu 1.75%
+iter 95: loss 4.1861, time 79897.54ms, mfu 1.73%
+iter 96: loss 4.2716, time 79886.37ms, mfu 1.74%
+iter 97: loss 4.2899, time 95390.38ms, mfu 1.71%
+iter 98: loss 5.0358, time 80771.38ms, mfu 1.72%
+iter 99: loss 4.2835, time 80019.98ms, mfu 1.73%
+step 100: train loss 4.2087, val loss 4.5189
+saving checkpoint to out-donaldtrump
+iter 100: loss 3.9996, time 91625.52ms, mfu 1.71%
+iter 101: loss 4.1327, time 100742.23ms, mfu 1.68%
+iter 102: loss 3.9081, time 98192.27ms, mfu 1.66%
+iter 103: loss 4.1612, time 91349.54ms, mfu 1.65%
+iter 104: loss 4.3482, time 96455.76ms, mfu 1.64%
+iter 105: loss 4.1711, time 85981.61ms, mfu 1.64%
+iter 106: loss 4.2392, time 81210.79ms, mfu 1.65%
+iter 107: loss 4.0942, time 85381.71ms, mfu 1.66%
+iter 108: loss 4.1506, time 84263.36ms, mfu 1.66%
+iter 109: loss 4.2074, time 80800.32ms, mfu 1.67%
+step 110: train loss 4.0906, val loss 4.5381
+iter 110: loss 4.0000, time 90840.35ms, mfu 1.66%
+iter 111: loss 4.1398, time 85110.67ms, mfu 1.67%
+iter 112: loss 3.9353, time 83119.94ms, mfu 1.67%
+iter 113: loss 4.1052, time 85617.58ms, mfu 1.67%
+iter 114: loss 4.1320, time 80757.14ms, mfu 1.68%
+iter 115: loss 4.0361, time 80702.15ms, mfu 1.69%
+iter 116: loss 3.9824, time 80715.27ms, mfu 1.70%
+iter 117: loss 3.8690, time 80740.70ms, mfu 1.71%
+iter 118: loss 4.0279, time 80693.44ms, mfu 1.72%
+iter 119: loss 4.0582, time 80723.49ms, mfu 1.72%
+step 120: train loss 3.9809, val loss 4.4359
+saving checkpoint to out-donaldtrump
+iter 120: loss 3.9635, time 91655.13ms, mfu 1.71%
+
+(base) C:\Users\jlira\Training\__Classes_GeorgeBrown\4015 Advanced Mathematical Concepts for Deep LearningMachine Learning\Assignments\Project1\nanoGPT-master>python sample.py --out_dir=out-donaldtrump --device=cuda:0     
+modelpy running
+Overriding: out_dir = out-donaldtrump
+Overriding: device = cuda:0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0
+number of parameters: 123.59M
+No meta.pkl found, assuming GPT-2 encodings...
+
+ doesn't know, but I'm in the Senate than so I called it for three. He made. You look at him. And he got the polls, I was a good. They're not a big. They're closed. Thank you have the money. But it takes. I have a terrible. Well, we're going to be the election. This is okay? I'll have never actually always don't want to pay with a lot of a call me. And I said, the wrong. I'm going to be so I don't think that's not even more. They're not bad people. This was like a Senator, I don't like this election. I don't want to the Democrats don't have more expensive. I didn't know that they're doing it see how about the way, one thing with this. You know that, it's really do, I don't think they're going to say it. We haven't know, but they don't say this. And's going to talk about the World epidemic. We have a good. Would you for your time, "Oh, they're winning. But you say, "Oh, I saw that was a lot. I don't want them that did it, the day for me have a great thing, I see very interesting. But I said, I said, "Sir, right. And I've doing. The Democrats are you could have to say, I said, it's a poll. I'm going to make it's going to you, they always say no idea. 00 and they heard of the doctor, we're going to take me do it done here. Thank you have crime, there. Any deals, not doing like with Michigan. Thank you would have a great. I said, but I don't care. We have a lot of the world. I was to have, and by the wall, these are going to China, we have to say you very interesting. I think it's got in billions, they're not for you're pouring in the place. You know an extra close… No, how they're working in a little bit, "What would go back, it. We've ever can't want to take a bad, that was it. The radical left. They have to be so you, right? How about things. I can I'm just ready?" "I'm going to win. I have the fact, or Biden is really
+---------------
+
+ I was a horrible, but they're the pand Amendment. Thank you can't like it's the history and we're the same guys, nobody has been doing. Remember, I hope to be back. And then it's not a great. You're very much for the United States. We don't get rid of Ohio and it's in the right now we're doing it. Did you see what we just… And we have it's why I'm going to come in their minds. Why and they say it. We have the most exceptional country and ending the American people, who is the USMCA, they say, we're going to help that we're going to say, it was a lot of these blood for the lowest economy. They're going to come back to be able to be telling us. And we're taking back to go out of the people. But these people in the party, and the one that, we're supposed to bring out and our country. I was a lot of thousands of our country and we didn't know that they're doing great. We're going to them, and they have to hurt and I have to the best. Let's happening with me. We're going to be being here. We're going to get the way, they're not I'm going to get now has the Democrats are price than that's a governor is not. That's a lot of our future for you going to get in the Democrats are just heard of the wall. Now they don't have been negotiating with that we're going to go to all over the place, on the Democrats keep the people and we love our country. Look at three years ago. They're working and we have you know, "Sir, they're going to them in a beauty. And we're in the first time. We're not good thing. And I can't think last year. But even want to happen. We've ended the country. But about this woman, they're going to vote for you. We've never been okay, Mike. I'll get it. And I don't even better. We'll defend the United States to pick. And by the world. We're winning. I'd see the face that's not going to secure the most beautiful thing. We're saying, "How good thing ever before. We're going to have to have to have to win for the world. This is going to go to pay the earth. We
+---------------
+
+ I said, we're doing very well with the most of the people. And I've got to Mexico, if they said, and we're doing what, you're doing one. I'm doing it doesn't have to explain that. I'm not going to get off. And I've been, but it's what's not something. But let that we took our tireadi so it. You know it was saying, I think as you a lot of the world. But if we're winning, I've ever had the wrong and they're going to be a very big thing. I know. I'll be tough for the American dream. I've never saw what we think and a great people, they're building our country. I mean, this. That's probably as incredible. So we have to go to keep the United States, and they were bad people don't lose the greatest year, I'm better. We got a woman. They're going to make it's never forget that a perfect, I said, this, right. You know I had to end of these great people are the lowest rate is the way, and we're not… I don't like they're dying, you know if you know how to murder. He's what we're going to go to do we took it's too well. But there's going to go to stand with the other side, they're going to us. We want to be here in this was winning, the American America is going to stop their100 million people, and we're making America great jobs in this, the campaign, the people. You know what we just done. That's just don't forget about that's a vote for our country. He's like,, and I mean, right thing, a lot of the world. I said, and not a lot of your second list. That's always be great. I came up I said, he loses, then it a lot of our country. We're seeing I'm going to say, you're doing. It's not the United States. Think of the end of that we're going to be in the Iraq, and we're doing that make America or you. I'm trying to take a Republican people on, we have to win. The next nation's ever had a lot of water on people that. They never put a state. You make America Great guy? I've ever had our country, the White House and we are
+---------------
+
+ cannot happen. We've got to be the United States will make America to be, your country's going to happen to be in the United States military and women, where all over, and we should never before. They're going to see what I want to have to get to keep it because we're going to Try. Together we are going to. You will make America make America Great Again for you very well. Don't we're the President Xi of the way, I said, socialism, and people were good. We're going to be here, we will be a long time. Please see it's it's a super more than ever seen him. They've ever had a very much. They went up to be four more than Ohio. We're doing great thing. We're going to win the first time. We are going to be at this election. The Democrats are going to think of our country, right here. It's a great for this guy. And we're not going to be announcing that I'm going to take care of people. They are taking it, they're going to get rid of the hell out of the people. And they're really great job. We're going to win. You don't mention that you have done in over, the most important. Now you like you, but we trust. Right? What's actually more than you have really know, and watch. I have to get it's a little bit, and we have the largest economy and we're not going to fight. Then they're going to go to win the largest movement, it done. I'm just before. We had one, and that didn't need it. We're doing? They're not even think of our country, please. It's why the world. We don't turn to change it. Did you're all just wanted to keep up, and we're going to vote. And I think so fast on it's a lot of the great job folks. We're going to say it. We will have the United States and we have the way, we need a very sick,000 people from the money, we've done. I guess? I was even think at the same president. You're going to be here, and they're not going to keep our vets. Her long. With your gasoline. It's going to win this First Lady. It was a terrible person. We're going to keep on the border because it's a
+---------------
+
+ have never got that's great. But they get your state of it's not have done. And they had. You know what a really do that's really as your help, they do it's the world, we're working. We have to get it. Do we're going to get it. It's going to give up and we were working, great American people. I don't want to use this incredible thing so good, actually, horrible people. We don't like this, but you're going to be taken them. I'm doing that's not we have a sudden we were going to this. We're going to take their people and a great. I feel big tent. Our country and you've ever had a good thing. It's going to have the history. I said it's true. They're doing. I turned it up a great. We landed, but of these people. And I'll take it. You're going up for the wall, but I don't get us. Think of Pennsylvania. We have the first week or ever had a great again. And I'm sorry for us. And here. Their people that was there. We've done. So I haven't talk about it, I don't get it's a great people have the American people don't think I want to have a very much. Thanks to have never been a lot of the other things I'm going to be a great people, these guys around. It's going to always been now, I saw the way, is standing up saying, I think it's going to be the house. I have the world. You don't know that time. It's going to get in Texas and your state of all of the … I can't believe in the debate before the first time. This is the wall. Great job. You can't say, "You know, I want to the ISIS Armed Security. We take in the next year, "Oh, it. Now, and we can't go for a big deal, I love you've ever be doing." This guy gets to have you know, I said, "I'm sorry for it's why I want to be negotiated tonight and I said, let's going to give up for America great, right?" He'd say, he's like the hell is we have the most important, but everybody would have some of the history of these people." The press, in the end of our nation with
+---------------
+
+ I'd you know that. But these people. It's dead. How about Obama. Now like you. Let me but it's like the House and nobody are I did you're the way, they're coming out. But they're doing great guy. We're actually had. They're going to stop. And we've never heard he said, I feel… And I said, he's not going to do it. You're going to win by the only thing for a family, I went crazy for this is so easy. You have to write a nice. And he got it's not do it. We're going to be all over the only great. He's going to thank you look at our country. They're going to have four years, I love you. These are finally take a bad people. I'm going to be able to lose him. So I'm going up. I have a good. When you can't have the fake news, they're going to say. I did. We're building the great. All of so big woman in the way, right? Remember? The next year, it's happening. My administration will be so we are in the State of our country, it was over the people are fighting for the thing. But you know they're going to him my administration is one. I have been in the best candidate. But you remember. But we have them now at. My father. When I mean. I used to have won't like this again, I can't think it's time to take it's nothing like it takes a whole thing. But I was one thing. I like it. We took the largest government. They make it. We'll see the United States Republican party. And I don't even had this is, I've got to stop the greatest country. We've never have a campaign and they love your president's the world, don't have a great. They're going to have the worst deals I would get in. I did it down. But I said, and we have to the NAFTA, "You know the world's really really much. Very soon as tough, I'm a fortune. That's what they'll get it?" And I don't even let me. I think of here to win, but they say it's not good group. You're going to thank you have to get it's happened. I don't want to use it up. I'm going to
+---------------
+
+ I said, right? You don't, and we don't buy it's a sudden it is a good deal. And I found out of it was a good. I'll take up. They go through the same thing. I have a few years ago, and I say, "Does that? They don't we have a great friends from the hell that I call it's another one of our economy of the way we've done. But we did it'll be so we've got to tell you can't had a good. Look at it, I'm not have turned them. You know what I give you can bring them back in New York has plenty-term abortion. And they go home. We've ever have an incredible. We use the radical left the farmers. You see what I have an incredible farmers, it you've got a thing just called them out of the greatest, the way, and they've told the next one. And by the Green the other countries, you know what I'm going to do that you should have two and I'm our country would take it. This is the USA. But you know what's ever, it, I want to keep on Michigan. No, it's going to win the way, I got to understand that's a young woman on the whole thing and they're doing bad things we've deported office, and I did it's get so well with China, and it, I went to do it. We have a little bit and everybody a big deal. Thank you get a great, and it was a disgrace with being a total of work as I know. I hope I'm going to be going to win it's going to look and they could always got home to Try. We are defending they're going to have children to show the best big job that's come up, in this way. And we're going to put in the greatest economy. We did it's a long time with where they don't touched that." It's a big deal for our country. "Sir, I will never been so we have… I think they're going to do it's really mean that we've ever before, because we're fighting for a big business in the story. Nobody ever had a great American people have a year, and I'm doing a lot of them and here in the most important as I'm building the election. I got good. It's done what we've done. They'd have all
+---------------
+
+ never seen for. And this is a good. And we would have the people will never heard that have they're in the way, it was nothing. Our country and despite the fake news was totally depleted. You'll never seen. I have a little nervous ago to what they're the vets. I love it's happening." They always say, and they did to be in the election, because they're very well for what it. We've ever been a guy, and they're going to another day. We have the statement, and we're going to make it out. She looked like Trump, I'll give it. They're doing. They don't hear it's a different states that for the wall. So we have to keep it so many … but we have gotten all time I found out the House. You look at the last year, they had a thing. And I'm being there's in the USMCA. I said, I hear what the same week because I will be honest with the way, and we're not the war? They're doing. I said. The people did you and they have a disgrace. That's never forget. It's a disaster. You can't want us, and I can't breathe. And I go, but I hear." But get that's got to get the history of our country. We've got to all the tariffs, I win the fake news, so important. Now, I appreciate it and I've been sorry ever had it. It was just want to change the future, but they do it's not so soon. And I called me in the United States. The fact going to be so exciting. But they want to open up with the mother's like the way, I get that's a very nice. We're all over in the way, they mean you. I said, I tell you, we did I said, they have to produce. That went to do that? Is it's all fairness the way, the fake news, beautiful thing. I don't think, I won't want to do that's not supposed to do it. If they're going to do? But we'll say it. We have to have to be in his life, and we had this. They're going to have another place, before like I mentioned. I said, when they were talking about it like our country. And, they're trying to make it. We've seen that means
+---------------
+
+ I did a minute, it said, but the president is a good thing I was not in two. We won it's what we have the American life. He takes a look at this last time for order. You're not going to be asking this day. The great. And we have already doing? But look at the morning. But he wasn't think it. So somebody never worked with that are. I have a man, who the second before, "I'm not going. They didn't know? And I don't be a man, a rough kind. The wall and I would never complain. But it was no idea. But they made. They're going to say it. I won. I'll have great job. You're going to go out a very much. You know what it. I want to me tell you had one? I've been there, look, you know. I think that's the way, they don't do you like what I want to kill him, this. You're going to get that's okay? "No, "Hey, it for the Republican Party, I love this was a deal. So do you what all the swamp. I love you know what they think it. The last night. Did you doing it to do you watched that? But now every race, then they had a friend of Texas H1. And I said, and me with this." I've been the world's having the way, I like this guy. That's a lot of women too, "We have the election. He's a man. It puts the next thing. The only thing. And I don't cover it for years ago. You have a great. I have very well he was a couple of the things. We've ever need anything for a great right. I got it, I think of a lot. And I don't win two community, here was very nice. I said that's going to Mexico that they went to do it, I say it. They're going to do you've been a great, they're doing we have a lot of the way, because you have no, they're not my wife was here's been so I see it." That's so I don't know what happened in one, because I'd say to be a list too, and I came in the suburbs. Did you have no idea. They're telling you. And there's not. He's doing
+---------------
+
+ always friends, we have the time. You'll have to win. I do it. It's a great to be nice. We've ever seen anything like a movement. And yet. So we're going to do it a big… I did. They have a thing. But I'm sure you know, we do it's the best. I looked like a good deal. They're coming into the best days ago outside of the history, these polls and somebody that one, got all really important people want to get rid of our farmers, I came down. And then he won this is the things. And you have… I'm talking about. Think of the whole ones. I said it was a politician? Are they just a great job they're all these guys, and all said, more years ago, but I went there was just took a long time, we're all. He would have a lot of the guy. He poured in the fake news. It's the great country. But I'm going to bring America Great Again he's so I saved a horrible, they're doing a long time two different and nobody went to you can do you're incredible. I have no problem. And we have a great thing. We have a lot of the number one of business, we've ever seen a lot, you don't know what happened to you. I say, but we have more than the face of the highest taxes on the election, everybody and for the polls, he'd spend America much. He'll never never been doing it for the plane standing up, right here, the greatest military officers, you have a year out and then he's so proud to say, you have an example, I didn't want to have been so great job. That's one. I don't mean, right? I said, we have a lot of the country, but we have to be more beautiful place look at I'm not doing is. They're not going to a great state. The one of our country is a lot. That's about the world and he'll have some of Agriculture, it. I'm telling you now have to win in the Democrats. They're going to be no, I'm saying, the greatest businesses. Keep America is good. They've done. Why know. At my first economy in Texas. You have never, because they go home. And they had. No, "I'm thrilled to have been with you can
+---------------
